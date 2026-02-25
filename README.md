@@ -1,18 +1,14 @@
 A dummy library for testing https://github.com/davidheineman/beaker-runner
 
-## Usage
+### Setup
 
-Launch a job that succeeds:
-```bash
-python launch.py --workspace ai2/my-workspace --budget ai2/my-budget
+```sh
+uv sync
 ```
 
-Launch a job that intentionally fails:
-```bash
-python launch.py --workspace ai2/my-workspace --budget ai2/my-budget --will-fail
-```
+### Usage
 
-Dry run (validate without submitting):
 ```bash
-python launch.py --workspace ai2/my-workspace --budget ai2/my-budget --dry-run
+python launch.py --workspace ai2/adaptability --budget ai2/oe-base
+python launch.py --workspace ai2/adaptability --budget ai2/oe-base --fail
 ```
