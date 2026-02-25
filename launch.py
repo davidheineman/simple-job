@@ -11,7 +11,12 @@ def main():
     parser.add_argument("--cluster", type=str, nargs="*")
     parser.add_argument("--show-logs", action="store_true", default=True)
     parser.add_argument("--dry-run", action="store_true", default=False)
+    parser.add_argument("--env", type=str, nargs="*", default=[], metavar="KEY=VALUE")
     args = parser.parse_args()
+
+    for ev in args.env:
+        if "=" not in ev:
+            parser.error(f"Invalid env var format '{ev}', expected KEY=VALUE")
 
     task_args = ["python", "task.py"]
     if args.fail:
@@ -23,6 +28,7 @@ def main():
         workspace=args.workspace,
         budget=args.budget,
         clusters=args.cluster,
+        env_vars=args.env or None,
         yes=True,
     )
 

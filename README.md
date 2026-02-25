@@ -11,4 +11,5 @@ uv sync
 ```bash
 python launch.py --workspace ai2/adaptability --budget ai2/oe-base
 python launch.py --workspace ai2/adaptability --budget ai2/oe-base --fail
+python launch.py --workspace ai2/adaptability --budget ai2/oe-base --env FOO=bar
 ```
